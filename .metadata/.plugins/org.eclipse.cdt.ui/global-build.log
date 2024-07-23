@@ -52208,3 +52208,2227 @@ make: Nothing to be done for 'all'.
 10:07:01 **** Incremental Build of configuration Debug for project 1249 ****
 make all 
 make: Nothing to be done for 'all'.
+10:54:40 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:62:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:63:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:58:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:58:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:58:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:58:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+At top level:
+../src/main.c:48:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: 1249.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../1249_bsp/microblaze_1/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "1249.elf"  ./src/fat/diskio.o ./src/fat/ff.o ./src/fat/ffsystem.o ./src/fat/ffunicode.o  ./src/FIFO.o ./src/alloc.o ./src/cmd.o ./src/main.o ./src/mem_test.o ./src/nhc_amba.o ./src/platform.o ./src/ring_buffer.o ./src/simple_dma.o ./src/xllfifo_polling_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: 1249.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size 1249.elf  |tee "1249.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  32636	   1856	4318244	4352736	 426ae0	1249.elf
+'Finished building: 1249.elf.size'
+' '
+10:54:59 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:62:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:63:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:58:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:58:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:58:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:58:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+At top level:
+../src/main.c:48:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+'Finished building: ../src/main.c'
+' '
+'Building target: 1249.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../1249_bsp/microblaze_1/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "1249.elf"  ./src/fat/diskio.o ./src/fat/ff.o ./src/fat/ffsystem.o ./src/fat/ffunicode.o  ./src/FIFO.o ./src/alloc.o ./src/cmd.o ./src/main.o ./src/mem_test.o ./src/nhc_amba.o ./src/platform.o ./src/ring_buffer.o ./src/simple_dma.o ./src/xllfifo_polling_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: 1249.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size 1249.elf  |tee "1249.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  32636	   1856	4318244	4352736	 426ae0	1249.elf
+'Finished building: 1249.elf.size'
+' '
+10:56:09 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:62:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:63:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:58:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:58:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:58:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:58:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:297:29: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+   uint32_t  buff = (void *)(MEM_DDR3_BASE);
+                             ^~~~~~~~~~~~~
+                             MEM_DDR4_BASE
+../src/main.c:297:29: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:304:18: error: 'DestinationBuffer' undeclared (first use in this function)
+    if (RxReceive(DestinationBuffer,&cmd_len) == XST_SUCCESS)
+                  ^~~~~~~~~~~~~~~~~
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:290:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:289:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:289:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:288:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:287:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:286:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:286:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:286:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:48:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:56:57 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:299:29: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+   uint32_t  buff = (void *)(MEM_DDR3_BASE);
+                             ^~~~~~~~~~~~~
+                             MEM_DDR4_BASE
+../src/main.c:299:29: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:361:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:57:14 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:299:29: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+   uint32_t  buff = (void *)(MEM_DDR3_BASE);
+                             ^~~~~~~~~~~~~
+                             MEM_DDR4_BASE
+../src/main.c:299:29: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:361:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:57:27 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:299:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:361:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:361:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:57:34 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:299:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:361:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:361:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:58:16 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:299:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:361:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:361:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:58:24 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'run_cmd_d20A':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:58:31 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:58:36 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:59:42 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:378:29: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+   uint32_t  buff_r=(void *)(MEM_DDR3_BASE);
+                             ^~~~~~~~~~~~~
+                             MEM_DDR4_BASE
+../src/main.c:379:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:390:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:402:4: error: 'DestinationBuffer_1' undeclared (first use in this function); did you mean 'DestinationBuffer'?
+    DestinationBuffer_1[0]=buff_r;
+    ^~~~~~~~~~~~~~~~~~~
+    DestinationBuffer
+../src/main.c:407:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:415:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:390:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:374:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:373:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:59:46 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:375:29: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+   uint32_t  buff_r=(void *)(MEM_DDR3_BASE);
+                             ^~~~~~~~~~~~~
+                             MEM_DDR4_BASE
+../src/main.c:376:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:387:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:399:4: error: 'DestinationBuffer_1' undeclared (first use in this function); did you mean 'DestinationBuffer'?
+    DestinationBuffer_1[0]=buff_r;
+    ^~~~~~~~~~~~~~~~~~~
+    DestinationBuffer
+../src/main.c:404:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:412:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:387:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:371:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:370:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+10:59:55 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:375:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(80000000);
+                    ^
+../src/main.c:376:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:387:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:388:18: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+    if (buff_r == MEM_DDR3_BASE)
+                  ^~~~~~~~~~~~~
+                  MEM_DDR4_BASE
+../src/main.c:399:4: error: 'DestinationBuffer_1' undeclared (first use in this function); did you mean 'DestinationBuffer'?
+    DestinationBuffer_1[0]=buff_r;
+    ^~~~~~~~~~~~~~~~~~~
+    DestinationBuffer
+../src/main.c:404:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:412:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:387:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:371:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:370:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:00:14 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:375:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:376:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:387:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:399:4: error: 'DestinationBuffer_1' undeclared (first use in this function); did you mean 'DestinationBuffer'?
+    DestinationBuffer_1[0]=buff_r;
+    ^~~~~~~~~~~~~~~~~~~
+    DestinationBuffer
+../src/main.c:404:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:412:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:421:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:387:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:371:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:370:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:00:23 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:375:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:376:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:387:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:399:4: error: 'DestinationBuffer_1' undeclared (first use in this function); did you mean 'DestinationBuffer'?
+    DestinationBuffer_1[0]=buff_r;
+    ^~~~~~~~~~~~~~~~~~~
+    DestinationBuffer
+../src/main.c:404:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:412:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:421:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:387:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:371:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:370:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:00:46 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:375:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:376:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:387:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:404:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:412:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:421:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:387:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:371:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:370:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:02:24 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:359:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:359:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:375:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:376:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:387:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:404:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:412:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:421:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:387:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:371:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:370:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:368:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:367:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:366:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:366:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:366:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:03:37 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:356:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:356:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:372:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:373:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:384:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:401:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:409:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:418:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:384:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:368:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:367:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:365:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:364:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:363:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:363:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:363:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:03:40 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:355:4: error: 'file_cap' undeclared (first use in this function); did you mean 'file_cmd'?
+    file_cap=slba;
+    ^~~~~~~~
+    file_cmd
+../src/main.c:355:4: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:371:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:372:8: error: 'file_cap' undeclared (first use in this function); did you mean 'file'?
+   size=file_cap;
+        ^~~~~~~~
+        file
+../src/main.c:383:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:400:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:408:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:417:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:383:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:367:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:366:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:364:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:363:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:362:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:362:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:362:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:05:04 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:371:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:383:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:400:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:408:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:417:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:417:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:383:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:367:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:366:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:364:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:363:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:362:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:362:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:362:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:16:07 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:371:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:383:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:400:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:408:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:417:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:417:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:383:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:367:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:366:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:364:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:363:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:362:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:362:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:362:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1
+11:16:19 **** Auto Build of configuration Debug for project 1249 ****
+make all 
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c:60:7: warning: unused variable 'ret' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+       ^~~
+../src/main.c: In function 'write_data':
+../src/main.c:297:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:325:9: warning: implicit declaration of function 'io_write_test'; did you mean 'io_write2'? [-Wimplicit-function-declaration]
+     if (io_write_test(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
+         ^~~~~~~~~~~~~
+         io_write2
+../src/main.c:292:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:291:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:291:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:290:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:289:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:288:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:288:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:288:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+../src/main.c: In function 'read_data':
+../src/main.c:371:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff_r=(void *)(0x80000000);
+                    ^
+../src/main.c:383:18: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+                  ^
+../src/main.c:400:10: warning: implicit declaration of function 'TxSend_1'; did you mean 'TxSend'? [-Wimplicit-function-declaration]
+    ret = TxSend_1(DestinationBuffer_1,8);
+          ^~~~~~~~
+          TxSend
+../src/main.c:408:5: warning: implicit declaration of function 'RxReceive_1'; did you mean 'RxReceive'? [-Wimplicit-function-declaration]
+     RxReceive_1(DestinationBuffer_1,&cmd_len);
+     ^~~~~~~~~~~
+     RxReceive
+../src/main.c:417:14: error: 'MEM_DDR3_BASE' undeclared (first use in this function); did you mean 'MEM_DDR4_BASE'?
+     buff_r = MEM_DDR3_BASE;
+              ^~~~~~~~~~~~~
+              MEM_DDR4_BASE
+../src/main.c:417:14: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c:383:13: warning: variable 'last' set but not used [-Wunused-but-set-variable]
+    uint32_t last=(void *)(0x81000000+Sign*len);
+             ^~~~
+../src/main.c:367:7: warning: unused variable 'br' [-Wunused-variable]
+   int br;
+       ^~
+../src/main.c:366:11: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+   int64_t size=0;
+           ^~~~
+../src/main.c:364:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:363:7: warning: unused variable 'Checknum' [-Wunused-variable]
+   int Checknum=0,Sign=0;
+       ^~~~~~~~
+../src/main.c:362:26: warning: unused variable 'h' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+                          ^
+../src/main.c:362:15: warning: unused variable 'Status' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+               ^~~~~~
+../src/main.c:362:11: warning: unused variable 'x' [-Wunused-variable]
+   int i=0,x=0,Status,ret,h=0;
+           ^
+At top level:
+../src/main.c:50:13: warning: 'Buff' defined but not used [-Wunused-variable]
+ static BYTE Buff[4096];  //与格式化空间大小有关
+             ^~~~
+make: *** [src/subdir.mk:50: src/main.o] Error 1

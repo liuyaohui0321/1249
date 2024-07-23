@@ -43,9 +43,9 @@ extern StructMsgQuery		MsgQuery;
 extern uint32_t Stop_flag;
 uint8_t sts=0;
 extern uint8_t rxflag;
-uint64_t file_cap=0;
+
 u32 DestinationBuffer[MAX_DATA_BUFFER_SIZE * WORD_SIZE];
-u32 DestinationBuffer_1[MAX_DATA_BUFFER_SIZE * WORD_SIZE];
+
 /********************文件系统格式化与挂载有关参数*******************/
 static BYTE Buff[4096];  //与格式化空间大小有关
 FATFS fs;
@@ -307,7 +307,7 @@ int write_data(void)
 				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
 				len  =DestinationBuffer[1];  // 写入数据的长度
 
-				if(buff==0x3C3CBCBC)		// 3.19号改 by lyh
+				if(buff==0)		// 3.19号改 by lyh
 				{
 					xil_printf("I/O Write Finish!\r\n");
 					xil_printf("w_count = %u\r\n",cmd_write_cnt);
@@ -322,15 +322,19 @@ int write_data(void)
 					}
 					break;
 				}
-				if (io_write_test(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
+
+				for(int j=0;j<32;j++)
 				{
-					 xil_printf("I/O Write Failed!\r\n");
-					 return 0;
+						if (io_write2(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
+						{
+							 xil_printf("I/O Write Failed!\r\n");
+							 return 0;
+						}
+						buff += len;
+						slba += len;
+						cmd_write_cnt += 1;
+//					xil_printf("buff:0x%lx \r\n",buff);
 				}
-				buff += len;
-				slba += len;
-				cmd_write_cnt += 1;
-//				xil_printf("buff:0x%lx \r\n",buff);
 			}
 			else
 			{
@@ -393,7 +397,7 @@ int read_data(void)
 			r_count++;
 			slba_r+= OFFSET_SIZE;
 			DestinationBuffer_1[0]=buff_r;
-			DestinationBuffer_1[1]=len;
+			DestinationBuffer_1[1]=len/4096;
 			xil_printf("buff_r:0x%lx \r\n",buff_r);
 //			XLLFIFO_SysInit();
 			XLLFIFO1_SysInit();

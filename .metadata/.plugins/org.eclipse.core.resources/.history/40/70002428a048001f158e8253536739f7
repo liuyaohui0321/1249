@@ -43,7 +43,7 @@ extern StructMsgQuery		MsgQuery;
 extern uint32_t Stop_flag;
 uint8_t sts=0;
 extern uint8_t rxflag;
-uint64_t file_cap=0;
+
 u32 DestinationBuffer[MAX_DATA_BUFFER_SIZE * WORD_SIZE];
 u32 DestinationBuffer_1[MAX_DATA_BUFFER_SIZE * WORD_SIZE];
 /********************文件系统格式化与挂载有关参数*******************/
@@ -322,15 +322,19 @@ int write_data(void)
 					}
 					break;
 				}
-				if (io_write_test(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
+
+				for(int j=0;j<32;j++)
 				{
-					 xil_printf("I/O Write Failed!\r\n");
-					 return 0;
+						if (io_write2(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
+						{
+							 xil_printf("I/O Write Failed!\r\n");
+							 return 0;
+						}
+						buff += len;
+						slba += len;
+						cmd_write_cnt += 1;
+//					xil_printf("buff:0x%lx \r\n",buff);
 				}
-				buff += len;
-				slba += len;
-				cmd_write_cnt += 1;
-//				xil_printf("buff:0x%lx \r\n",buff);
 			}
 			else
 			{
