@@ -2386,8 +2386,8 @@ int run_cmd_d203(StructMsg *pMsg)
 
 #if   10	//覆盖写入
 		// 获取并解析从DMA0传过来的文件路径
-		ret = f_open(&wfile,cmd_str_11, FA_CREATE_ALWAYS | FA_WRITE |FA_READ);
-//		ret = f_open(&wfile,"D", FA_CREATE_ALWAYS | FA_WRITE |FA_READ);
+//		ret = f_open(&wfile,cmd_str_11, FA_CREATE_ALWAYS | FA_WRITE |FA_READ);
+		ret = f_open(&wfile,"D", FA_CREATE_ALWAYS | FA_WRITE |FA_READ);
 		if (ret != FR_OK)
 		{
 			xil_printf("f_open Failed! ret=%d\r\n", ret);
@@ -2437,13 +2437,31 @@ int run_cmd_d203(StructMsg *pMsg)
 		while (1)
 		{
 //			xil_printf("Start Write!\r\n");
-			if (RxReceive(DestinationBuffer,&cmd_len) == XST_SUCCESS)
+			if (RxReceive(DestinationBuffer,&cmd_len) != XST_SUCCESS)
 			{
 
-				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
-				len  =DestinationBuffer[1];  // 写入数据的长度
+//				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
+//				len  =DestinationBuffer[1];  // 写入数据的长度
+				buff =0x80000000;  // 保存写入数据的DDR地址
+				len  =0x80000000;  // 写入数据的长度
 
-				if(buff==0x3C3CBCBC)		// 3.19号改 by lyh
+//				if(buff==0x3C3CBCBC)		// 3.19号改 by lyh
+//				{
+//					xil_printf("I/O Write Finish!\r\n");
+////					xil_printf("w_count = %u\r\n",cmd_write_cnt);
+//					xil_printf("w_count = %u w_size = %lu\r\n",cmd_write_cnt,f_size(&wfile));
+//					for(i=0;i<NHC_NUM;i++)
+//					{
+//						while (nhc_queue_ept(i) == 0)
+//						{
+//							do {
+//								sts = nhc_cmd_sts(i);
+//							}while(sts == 0x01);
+//						}
+//					}
+//					break;
+//				}
+				if(cmd_write_cnt==51)		// 3.19号改 by lyh
 				{
 					xil_printf("I/O Write Finish!\r\n");
 //					xil_printf("w_count = %u\r\n",cmd_write_cnt);

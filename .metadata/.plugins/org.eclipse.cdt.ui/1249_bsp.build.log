@@ -1,4 +1,4 @@
-09:46:14 **** Build of project 1249_bsp ****
+10:06:47 **** Build of project 1249_bsp ****
 make -k all 
 "Running Make include in microblaze_1/libsrc/axidma_v9_9/src"
 make -C microblaze_1/libsrc/axidma_v9_9/src -s include  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
@@ -21,6 +21,7 @@ make -C microblaze_1/libsrc/uartlite_v3_2/src -s include  "SHELL=CMD" "COMPILER=
 "Running Make libs in microblaze_1/libsrc/axidma_v9_9/src"
 make -C microblaze_1/libsrc/axidma_v9_9/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling axidma"
+mb-ar: creating ../../../lib/libxil.a
 "Running Make libs in microblaze_1/libsrc/bram_v4_3/src"
 make -C microblaze_1/libsrc/bram_v4_3/src -s libs  "SHELL=CMD" "COMPILER=mb-gcc" "ARCHIVER=mb-ar" "COMPILER_FLAGS=  -O2 -c -mcpu=v11.0 -mlittle-endian -mxl-soft-mul" "EXTRA_COMPILER_FLAGS=-ffunction-sections -fdata-sections -Wall -Wextra"
 "Compiling bram"
@@ -50,5 +51,5 @@ make -C microblaze_1/libsrc/uartlite_v3_2/src -s libs  "SHELL=CMD" "COMPILER=mb-
 "Compiling uartlite"
 'Finished building libraries'
 
-09:46:20 Build Finished (took 6s.425ms)
+10:06:52 Build Finished (took 5s.361ms)
 

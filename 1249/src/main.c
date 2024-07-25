@@ -59,15 +59,13 @@ int main()
 {
 		int ret,br=0,bw=0,i=0;
 		xil_printf("UCAS Project 1249!\r\n");
-#if  1
+#if   1
 		init_platform();
 		MsgQueryInit();
 		SimpleDmaInit();
 		XLLFIFO_SysInit();
 		DiskInit();
 
-
-#if    	0   // no filesystem
 #if     0//format the filesysterm
 		ret = f_mkfs(
 			"",	/* Logical drive number */
@@ -110,6 +108,7 @@ int main()
 			cmd_parse();
 			rxflag=0;
 		}
+		run_cmd_d203(0);
 		memset(&CurMsg,0,sizeof(CurMsg));
 		GetMessage(&CurMsg);
 		switch(CurMsg.HandType)
@@ -275,167 +274,40 @@ int main()
 
 	}
 #endif
-
-#endif
 	/* never reached */
 	cleanup_platform();
 
 	return 0;
 }
 
-int write_data(void)
-{
-		uint32_t ret=0,i=0,x=0,h=0;
-		u16 unicode_u16=0;
-		int k=0;
-		uint32_t Status=0,bw=0;
-		u32 file_cmd=0;
-		uint8_t sts;
-		uint32_t cmd_write_cnt=0,cmd_len=0;
-		uint32_t  len= 0x20000000;
-//		uint32_t  len;
-		uint32_t  buff = (void *)(0x00000000);
-		uint64_t  slba=0;
-		xil_printf("Waiting FPGA Vio Ctrl Read Write Start\r\n");
-#if  1
-		while (1)
-		{
-//			xil_printf("Start Write!\r\n");
-			if (RxReceive(DestinationBuffer,&cmd_len) == XST_SUCCESS)
-			{
-
-				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
-				len  =DestinationBuffer[1];  // 写入数据的长度
-
-				if(buff==0x3C3CBCBC)		// 3.19号改 by lyh
-				{
-					xil_printf("I/O Write Finish!\r\n");
-					xil_printf("w_count = %u\r\n",cmd_write_cnt);
-					for(i=0;i<NHC_NUM;i++)
-					{
-						while (nhc_queue_ept(i) == 0)
-						{
-							do {
-								sts = nhc_cmd_sts(i);
-							}while(sts == 0x01);
-						}
-					}
-					break;
-				}
-				if (io_write_test(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
-				{
-					 xil_printf("I/O Write Failed!\r\n");
-					 return 0;
-				}
-				buff += len;
-				slba += len;
-				cmd_write_cnt += 1;
-//				xil_printf("buff:0x%lx \r\n",buff);
-			}
-			else
-			{
-				for(i=0;i<NHC_NUM;i++)
-				{
-					do {
-							sts = nhc_cmd_sts(i);
-						}while(sts == 0x01);
-				}
-			}
-
-			for(i=0;i<NHC_NUM;i++)
-			{
-				while (nhc_queue_ept(i) == 0)
-				{
-					do {
-						sts = nhc_cmd_sts(i);
-					}while(sts == 0x01);
-				}
-			}
-		 }   // while
-		 file_cap=slba;
-		 return 0;
-#endif
-}
-
-int read_data(void)
-{
-	 int i=0,x=0,Status,ret,h=0;
-	 int Checknum=0,Sign=0;
-	 u16 unicode_u16=0;
-	 uint8_t sts;
-	 int64_t size=0;
-	 int br;
-	 uint64_t  slba_r=0;
-	 uint32_t  r_count=0,cmd_len=0;;
-	 uint32_t  len;
-	 uint32_t  buff_r=(void *)(0x80000000);
-	 size=file_cap;
-	 len= OFFSET_SIZE;
-	 while(1)
-	 {
-		 	if(io_read2(NHC_NUM, 0x1, buff_r, slba_r, len, 0x0) != 0x02)
-			{
-				xil_printf("I/O Read Failed!\r\n");
-				return 0;
-			}
-
-#if   1   // 回读存放的地址为:0x80000000~0x9FFFFFFF
-			uint32_t last=(void *)(0x81000000+Sign*len);
-			if (buff_r == 0x80000000)
-			{
-				last = 0x81000000;
-				Sign=0;
-			}
-			else if(buff_r == 0x9F000000)
-			{
-				last = 0x9FFFFFFF;
-			}
-			r_count++;
-			slba_r+= OFFSET_SIZE;
-			DestinationBuffer_1[0]=buff_r;
-			DestinationBuffer_1[1]=len;
-			xil_printf("buff_r:0x%lx \r\n",buff_r);
-//			XLLFIFO_SysInit();
-			XLLFIFO1_SysInit();
-			ret = TxSend_1(DestinationBuffer_1,8);
-			if (ret != XST_SUCCESS)
-			{
-				 xil_printf("TxSend Failed! ret=%d\r\n", ret);
-				 return ret;
-			}
-			do
-			{
-				RxReceive_1(DestinationBuffer_1,&cmd_len);
-			}while(!(0xaa55aa55 == DestinationBuffer_1[0]));
-
-			if (buff_r <(0x9FFFFFFF-OFFSET_SIZE))
-			{
-				buff_r += OFFSET_SIZE;
-			}
-			else
-			{
-				buff_r = MEM_DDR3_BASE;
-			}
-			Sign++;
-#endif
-			 for(i=0;i<NHC_NUM;i++)
-			 {
-					while (nhc_queue_ept(i) == 0)
-					{
-						do {
-							sts = nhc_cmd_sts(i);
-						}while(sts == 0x01);
-					}
-			 }
-//			 size-=len;
-//			 if((size<OFFSET_SIZE)&&(size>0))
-//			 {
-//				 len=size;
-//			 }
-//			 else if(size<=0)
-//			 {
-//					xil_printf("I/O Read or Write Test Finish!\r\n");
-//					xil_printf("r_count=%u\r\n",r_count);
+//int write_data(void)
+//{
+//		uint32_t ret=0,i=0,x=0,h=0;
+//		u16 unicode_u16=0;
+//		int k=0;
+//		uint32_t Status=0,bw=0;
+//		u32 file_cmd=0;
+//		uint8_t sts;
+//		uint32_t cmd_write_cnt=0,cmd_len=0;
+//		uint32_t  len= 0x20000000;
+////		uint32_t  len;
+//		uint32_t  buff = (void *)(0x00000000);
+//		uint64_t  slba=0;
+//		xil_printf("Waiting FPGA Vio Ctrl Read Write Start\r\n");
+//#if  1
+//		while (1)
+//		{
+////			xil_printf("Start Write!\r\n");
+//			if (RxReceive(DestinationBuffer,&cmd_len) == XST_SUCCESS)
+//			{
+//
+//				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
+//				len  =DestinationBuffer[1];  // 写入数据的长度
+//
+//				if(buff==0x3C3CBCBC)		// 3.19号改 by lyh
+//				{
+//					xil_printf("I/O Write Finish!\r\n");
+//					xil_printf("w_count = %u\r\n",cmd_write_cnt);
 //					for(i=0;i<NHC_NUM;i++)
 //					{
 //						while (nhc_queue_ept(i) == 0)
@@ -446,13 +318,138 @@ int read_data(void)
 //						}
 //					}
 //					break;
+//				}
+//				if (io_write_test(NHC_NUM,0x1,buff, slba, len, 0x0) != 0x02)
+//				{
+//					 xil_printf("I/O Write Failed!\r\n");
+//					 return 0;
+//				}
+//				buff += len;
+//				slba += len;
+//				cmd_write_cnt += 1;
+////				xil_printf("buff:0x%lx \r\n",buff);
 //			}
-			 if(r_count>=3200)
-			 {
-				 xil_printf("here\r\n");
-			 }
+//			else
+//			{
+//				for(i=0;i<NHC_NUM;i++)
+//				{
+//					do {
+//							sts = nhc_cmd_sts(i);
+//						}while(sts == 0x01);
+//				}
+//			}
+//
+//			for(i=0;i<NHC_NUM;i++)
+//			{
+//				while (nhc_queue_ept(i) == 0)
+//				{
+//					do {
+//						sts = nhc_cmd_sts(i);
+//					}while(sts == 0x01);
+//				}
+//			}
+//		 }   // while
+//		 file_cap=slba;
+//		 return 0;
+//#endif
+//}
 
-	 }  //while
-	 return 0;
-}
+//int read_data(void)
+//{
+//	 int i=0,x=0,Status,ret,h=0;
+//	 int Checknum=0,Sign=0;
+//	 u16 unicode_u16=0;
+//	 uint8_t sts;
+//	 int64_t size=0;
+//	 int br;
+//	 uint64_t  slba_r=0;
+//	 uint32_t  r_count=0,cmd_len=0;;
+//	 uint32_t  len;
+//	 uint32_t  buff_r=(void *)(0x80000000);
+//	 size=file_cap;
+//	 len= OFFSET_SIZE;
+//	 while(1)
+//	 {
+//		 	if(io_read2(NHC_NUM, 0x1, buff_r, slba_r, len, 0x0) != 0x02)
+//			{
+//				xil_printf("I/O Read Failed!\r\n");
+//				return 0;
+//			}
+//
+//#if   1   // 回读存放的地址为:0x80000000~0x9FFFFFFF
+//			uint32_t last=(void *)(0x81000000+Sign*len);
+//			if (buff_r == 0x80000000)
+//			{
+//				last = 0x81000000;
+//				Sign=0;
+//			}
+//			else if(buff_r == 0x9F000000)
+//			{
+//				last = 0x9FFFFFFF;
+//			}
+//			r_count++;
+//			slba_r+= OFFSET_SIZE;
+//			DestinationBuffer_1[0]=buff_r;
+//			DestinationBuffer_1[1]=len;
+//			xil_printf("buff_r:0x%lx \r\n",buff_r);
+////			XLLFIFO_SysInit();
+//			XLLFIFO1_SysInit();
+//			ret = TxSend_1(DestinationBuffer_1,8);
+//			if (ret != XST_SUCCESS)
+//			{
+//				 xil_printf("TxSend Failed! ret=%d\r\n", ret);
+//				 return ret;
+//			}
+//			do
+//			{
+//				RxReceive_1(DestinationBuffer_1,&cmd_len);
+//			}while(!(0xaa55aa55 == DestinationBuffer_1[0]));
+//
+//			if (buff_r <(0x9FFFFFFF-OFFSET_SIZE))
+//			{
+//				buff_r += OFFSET_SIZE;
+//			}
+//			else
+//			{
+//				buff_r = MEM_DDR3_BASE;
+//			}
+//			Sign++;
+//#endif
+//			 for(i=0;i<NHC_NUM;i++)
+//			 {
+//					while (nhc_queue_ept(i) == 0)
+//					{
+//						do {
+//							sts = nhc_cmd_sts(i);
+//						}while(sts == 0x01);
+//					}
+//			 }
+////			 size-=len;
+////			 if((size<OFFSET_SIZE)&&(size>0))
+////			 {
+////				 len=size;
+////			 }
+////			 else if(size<=0)
+////			 {
+////					xil_printf("I/O Read or Write Test Finish!\r\n");
+////					xil_printf("r_count=%u\r\n",r_count);
+////					for(i=0;i<NHC_NUM;i++)
+////					{
+////						while (nhc_queue_ept(i) == 0)
+////						{
+////							do {
+////								sts = nhc_cmd_sts(i);
+////							}while(sts == 0x01);
+////						}
+////					}
+////					break;
+////			}
+//			 if(r_count>=3200)
+//			 {
+//				 xil_printf("here\r\n");
+//			 }
+//
+//	 }  //while
+//	 return 0;
+//}
 
