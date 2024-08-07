@@ -1022,6 +1022,7 @@ uint8_t io_write2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, 
 	static uint32_t full_wr_cnt = 0;
 //	slba = slba/512/nhc_num*2; //6.13改
 	slba = slba/512/nhc_num;
+//	slba = convert1ToMultipleOfSix();
 //	slba = slba/512;
 //	j=0;  //j代表总包数
 //	xil_printf("io_write addr=0x%x slba=%u  ", addr, slba);
@@ -1110,102 +1111,6 @@ uint8_t io_write2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, 
 	return 0x02;
 }
 
-uint8_t io_write_test(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, uint32_t len, uint32_t dsm)
-{
-
-	uint32_t cmd_cdw[16];
-	uint8_t  sts;
-	uint8_t  i,j;
-	static uint32_t full_wr_cnt = 0;
-//	slba = slba/512/nhc_num*2; //6.13改
-	slba = slba/512/nhc_num;
-//	slba = slba/512;
-//	j=0;  //j代表总包数
-//	xil_printf("io_write addr=0x%x slba=%u  ", addr, slba);
-//	xil_printf("len=%lu\n", len);
-	for(i=0;i<nhc_num;)
-	{
-		// Command Submission
-		cmd_cdw[0]  = 0x80350081;
-		cmd_cdw[1]  = nsid;
-		cmd_cdw[2]  = 0x0;
-		cmd_cdw[3]  = 0x0;
-		cmd_cdw[4]  = 0x0;
-		cmd_cdw[5]  = 0x0;
-//		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*U_BLK_SIZE/nhc_num;   // 9.27改
-//		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;   //6.13改
-		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
-//		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
-//		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len;
-//		cmd_cdw[6]  = addr + i*len/nhc_num;		// 3.9
-		cmd_cdw[7]  = 0x0; // Non-zero if use 64bit memory address
-		cmd_cdw[8]  = 0x0;
-		cmd_cdw[9]  = 0x0;
-		cmd_cdw[10] = (uint32_t) (slba >> 0);
-		cmd_cdw[11] = (uint32_t) (slba >> 32);
-//		cmd_cdw[12] = len/512/nhc_num;  	// 3.9
-//		cmd_cdw[12] = len/512/nhc_num*2*2;
-//		cmd_cdw[12] = len/512/nhc_num*2;    // 6.13改
-		cmd_cdw[12] = len/512/nhc_num;
-//		cmd_cdw[12] = 64;
-		cmd_cdw[13] = dsm & 0xFF;
-		cmd_cdw[14] = 0x0;
-		cmd_cdw[15] = 0x0;
-
-		sts = nhc_cmd_sub(i,cmd_cdw);// Previously, sub was behind while
-		if(sts == 1)
-		{
-			i+=1;
-		}
-		else
-		{
-			sts = nhc_cmd_sts(i);
-		}
-	}
-//	if (addr == DDR4_START_ADDR)
-//	{
-//	 	full_wr_cnt = full_wr_cnt + 1;
-////		xil_printf("Have write full ddr area.full write cnt is %d.\n",full_wr_cnt);
-//	}
-	// Command Status
-		while (queue_rptr != queue_wptr)
-		{
-			sts = nhc_cmd_sts(0);
-			if (sts == 3)
-				return sts;
-		}
-		while (queue2_rptr != queue2_wptr)
-		{
-			sts = nhc_cmd_sts(1);
-			if (sts == 3)
-				return sts;
-		}
-		while (queue3_rptr != queue3_wptr)
-		{
-			sts = nhc_cmd_sts(2);
-			if (sts == 3)
-				return sts;
-		}
-		while (queue4_rptr != queue4_wptr)
-		{
-			sts = nhc_cmd_sts(3);
-			if (sts == 3)
-				return sts;
-		}
-//	    while (queue5_rptr != queue5_wptr)
-//		{
-//			sts = nhc_cmd_sts(4);
-//			if (sts == 3)
-//				return sts;
-//		}
-//		while (queue6_rptr != queue6_wptr)
-//		{
-//			sts = nhc_cmd_sts(5);
-//			if (sts == 3)
-//				return sts;
-//		}
-	return 0x02;
-}
 // *********************************************************************************
 // I/O Read
 // <-0x0: not submitted; 0x1: Ongoing; 0x2: Successful; 0x3: Error
@@ -1457,7 +1362,7 @@ uint8_t io_read2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*U_BLK_SIZE/nhc_num;   // 9.27改
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;
 		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
-//		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
+//		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len;
 		cmd_cdw[7]  = 0x0; // Non-zero if use 64bit memory address
 		cmd_cdw[8]  = 0x0;
@@ -1677,7 +1582,23 @@ uint8_t io_read3(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 	return 0x02;
 }
 
+uint64_t convert1ToMultipleOfSix(uint64_t num)
+{
+	uint32_t remainder = num % 64;
+    if (remainder != 0) {
+        num += 64 - remainder;
+    }
+    return num;
+}
 
+uint32_t convertToMultipleOfSix(uint32_t num)
+{
+	uint32_t remainder = num % 64;
+    if (remainder != 0) {
+        num += 64 - remainder;
+    }
+    return num;
+}
 // *********************************************************************************
 // I/O Dataset Management
 // <-0x0: not submitted; 0x1: Ongoing; 0x2: Successful; 0x3: Error

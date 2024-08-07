@@ -6305,7 +6305,6 @@ FRESULT f_mkfs (
 	static const WORD cst32[] = {1, 2, 4, 8, 16, 32, 0};	/* Cluster size boundary for FAT32 volume (128Ks unit) */
 //	static const MKFS_PARM defopt = {0x04, 2,512*8, 0, 1048576};	/* Default parameter */
 	static const MKFS_PARM defopt = {0x04, 2,512*8, 0, 16777216};	/* Default parameter */
-//	static const MKFS_PARM defopt = {0x04, 2,512*8, 0, 33554432};	/* Default parameter */
 //	static const MKFS_PARM defopt = {FM_ANY, 0, 0,0};
 	BYTE fsopt, fsty, sys, pdrv, ipart;
 	BYTE *buf;

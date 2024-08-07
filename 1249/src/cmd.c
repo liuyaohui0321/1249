@@ -2439,11 +2439,10 @@ int run_cmd_d203(StructMsg *pMsg)
 //			xil_printf("Start Write!\r\n");
 			if (RxReceive(DestinationBuffer,&cmd_len) != XST_SUCCESS)
 			{
-
-//				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
-//				len  =DestinationBuffer[1];  // 写入数据的长度
-				buff =0x80000000;  // 保存写入数据的DDR地址
-				len  =0x80000000;  // 写入数据的长度
+				buff =DestinationBuffer[0];  // 保存写入数据的DDR地址
+				len  =DestinationBuffer[1];  // 写入数据的长度
+//				buff =0x00000000;  // 保存写入数据的DDR地址
+//				len  =0x80000000;  // 写入数据的长度
 
 //				if(buff==0x3C3CBCBC)		// 3.19号改 by lyh
 //				{

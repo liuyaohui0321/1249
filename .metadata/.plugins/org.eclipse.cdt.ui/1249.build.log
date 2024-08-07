@@ -1,6 +1,120 @@
-10:15:08 **** Incremental Build of configuration Debug for project 1249 ****
+10:55:22 **** Auto Build of configuration Debug for project 1249 ****
 make all 
-make: Nothing to be done for 'all'.
+'Building file: ../src/main.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/main.o" -I../../1249_bsp/microblaze_1/include -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/main.d" -MT"src/main.o" -o "src/main.o" "../src/main.c"
+In file included from ../src/cmd.h:4,
+                 from ../src/main.c:39:
+../../1249_bsp/microblaze_1/include/xbasic_types.h:120:2: warning: #warning The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert. [-Wcpp]
+ #warning  The xbasics_type.h file is deprecated and users should use xil_types.h and xil_assert.
+  ^~~~~~~
+../../1249_bsp/microblaze_1/include/xbasic_types.h:121:2: warning: #warning Please refer the Standalone BSP UG647 for further details [-Wcpp]
+ #warning  Please refer the Standalone BSP UG647 for further details
+  ^~~~~~~
+In file included from ../src/main.c:39:
+../src/cmd.h:226:1: warning: multi-line comment [-Wcomment]
+ //#define SW16(x) ((uint16_t)((((uint16_t)(x)&0x00ffU)<<8) | \
+ ^
+../src/main.c: In function 'main':
+../src/main.c:64:3: warning: implicit declaration of function 'MsgQueryInit' [-Wimplicit-function-declaration]
+   MsgQueryInit();
+   ^~~~~~~~~~~~
+../src/main.c:65:3: warning: implicit declaration of function 'SimpleDmaInit' [-Wimplicit-function-declaration]
+   SimpleDmaInit();
+   ^~~~~~~~~~~~~
+../src/main.c:109:4: warning: implicit declaration of function 'cmd_parse' [-Wimplicit-function-declaration]
+    cmd_parse();
+    ^~~~~~~~~
+../src/main.c:114:3: warning: implicit declaration of function 'GetMessage'; did you mean 'setstate'? [-Wimplicit-function-declaration]
+   GetMessage(&CurMsg);
+   ^~~~~~~~~~
+   setstate
+../src/main.c:138:12: warning: implicit declaration of function 'run_cmd_a202'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_a202(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:150:12: warning: implicit declaration of function 'run_cmd_a204'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_a204(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:164:12: warning: implicit declaration of function 'run_cmd_a205'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_a205(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:183:10: warning: implicit declaration of function 'run_cmd_b201'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+      ret=run_cmd_b201(&CurMsg);
+          ^~~~~~~~~~~~
+          run_cmd_a201
+../src/main.c:200:12: warning: implicit declaration of function 'run_cmd_d201'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_d201(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:214:12: warning: implicit declaration of function 'run_cmd_d202'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_d202(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:228:12: warning: implicit declaration of function 'run_cmd_d203'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_d203(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:241:12: warning: implicit declaration of function 'run_cmd_d204'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+        ret=run_cmd_d204(&CurMsg);
+            ^~~~~~~~~~~~
+            run_cmd_a201
+../src/main.c:260:10: warning: implicit declaration of function 'run_cmd_f201'; did you mean 'run_cmd_a201'? [-Wimplicit-function-declaration]
+      ret=run_cmd_f201(&CurMsg);
+          ^~~~~~~~~~~~
+          run_cmd_a201
+../src/main.c:60:21: warning: unused variable 'i' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                     ^
+../src/main.c:60:16: warning: unused variable 'bw' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+                ^~
+../src/main.c:60:11: warning: unused variable 'br' [-Wunused-variable]
+   int ret,br=0,bw=0,i=0;
+           ^~
+../src/main.c: In function 'write_data':
+../src/main.c:296:20: warning: initialization of 'uint32_t' {aka 'long unsigned int'} from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   uint32_t  buff = (void *)(0x00000000);
+                    ^
+../src/main.c:291:7: warning: unused variable 'file_cmd' [-Wunused-variable]
+   u32 file_cmd=0;
+       ^~~~~~~~
+../src/main.c:290:21: warning: unused variable 'bw' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+                     ^~
+../src/main.c:290:12: warning: unused variable 'Status' [-Wunused-variable]
+   uint32_t Status=0,bw=0;
+            ^~~~~~
+../src/main.c:289:7: warning: unused variable 'k' [-Wunused-variable]
+   int k=0;
+       ^
+../src/main.c:288:7: warning: unused variable 'unicode_u16' [-Wunused-variable]
+   u16 unicode_u16=0;
+       ^~~~~~~~~~~
+../src/main.c:287:26: warning: unused variable 'h' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                          ^
+../src/main.c:287:22: warning: unused variable 'x' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+                      ^
+../src/main.c:287:12: warning: unused variable 'ret' [-Wunused-variable]
+   uint32_t ret=0,i=0,x=0,h=0;
+            ^~~
+'Finished building: ../src/main.c'
+' '
+'Building target: 1249.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../1249_bsp/microblaze_1/lib -mlittle-endian -mcpu=v11.0 -mxl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "1249.elf"  ./src/fat/diskio.o ./src/fat/ff.o ./src/fat/ffsystem.o ./src/fat/ffunicode.o  ./src/FIFO.o ./src/alloc.o ./src/cmd.o ./src/main.o ./src/mem_test.o ./src/nhc_amba.o ./src/platform.o ./src/ring_buffer.o ./src/simple_dma.o ./src/xllfifo_polling_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: 1249.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size 1249.elf  |tee "1249.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 460400	   1856	10648952	11111208	 a98b28	1249.elf
+'Finished building: 1249.elf.size'
+' '
 
-10:15:08 Build Finished (took 96ms)
+10:55:23 Build Finished (took 607ms)
 

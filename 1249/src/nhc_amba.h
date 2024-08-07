@@ -96,4 +96,6 @@ void pcie_hot_reset(uint8_t inst);
 
 void send_axis_ack(uint8_t type,uint32_t addrt,uint32_t len,uint8_t sts);
 void DiskInit();
+uint64_t convert1ToMultipleOfSix(uint64_t num);
+uint32_t convertToMultipleOfSix(uint32_t num);
 #endif
