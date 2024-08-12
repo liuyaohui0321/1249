@@ -31,7 +31,7 @@ extern uint8_t   cancel;
 extern FIL file;
 extern FIL wfile;
 extern FIL rfile;
-extern uint8_t lwip_flag;
+//extern uint8_t lwip_flag;
 uint32_t write_len=0;
 
 DIR dir;
@@ -43,8 +43,8 @@ int result_d201=0x0;
 int result_d205=0x0;
 int result_d20A=0x0;
 int result_f201=0x0;
-uint8_t HasCreat=0;
-//uint8_t Stop_read=0;
+//uint8_t HasCreat=0;
+uint8_t Stop_read=0;
 //extern struct message_struct fifodata;
 //extern int a;
 /**********************FIFO有关参数设置*************************/
@@ -292,11 +292,11 @@ void cmd_type_id_parse(StructMsg *pMsg)
 							}
 						break;
 						case 0xA:
-//							for(i=0; i < TMsg.DataLen; i++)
-//							{
-//								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
-//							}
-//							Stop_read=1;
+							for(i=0; i < TMsg.DataLen; i++)
+							{
+								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
+							}
+							Stop_read=1;
 						break;
 						default:
 							return 0;
@@ -425,7 +425,9 @@ int run_cmd_a201(StructMsg *pMsg)
 	BYTE  cmd_str_11[100]={0},cmd_str_21[100]={0};
 	FRESULT fr1;
 	FILINFO fno1;
-	xil_printf("%s %d\r\n", __FUNCTION__, __LINE__);
+	uint32_t  databuf = (void *)(0xA0000000);
+	uint32_t upload_time=1,lastpack_Size=0,wlen=0,COUNT=0;
+//	xil_printf("%s %d\r\n", __FUNCTION__, __LINE__);
 	file_cmd = CW32(pMsg->MsgData[i+0],pMsg->MsgData[i+1],pMsg->MsgData[i+2],pMsg->MsgData[i+3]);
 	i=i+4;
 	temp=i;   // 9.7 LYH
@@ -733,10 +735,36 @@ int run_cmd_a201(StructMsg *pMsg)
 			}
 			cmd_reply_a203(0,0xA2,0x1,0x11);
 			usleep(100);
-			AxiDma.TxBdRing.HasDRE=1;
-			ret = XAxiDma_SimpleTransfer(&AxiDma,(UINTPTR *)(0xA0000000),write_len,XAXIDMA_DMA_TO_DEVICE);
-			if (ret != XST_SUCCESS) {
-				return XST_FAILURE;
+
+			wlen=write_len;
+			if(write_len>0x3FFE)
+			{
+				upload_time = (write_len/0x3FFE)+1;
+				wlen = 0x3FFE;
+				lastpack_Size = write_len % 0x3FFE;
+				if((write_len%0x3FFE)==0)
+				{
+					upload_time = write_len/0x3FFE;
+					wlen = 0x3FFE;
+					lastpack_Size = 0x3FFE;
+				}
+			}
+
+			while(1)
+			{
+				AxiDma.TxBdRing.HasDRE=1;
+				ret = XAxiDma_SimpleTransfer(&AxiDma,(UINTPTR *)(databuf),wlen,XAXIDMA_DMA_TO_DEVICE);
+				if (ret != XST_SUCCESS) {
+					return XST_FAILURE;
+				}
+				COUNT++;
+				databuf+=wlen;
+				if(COUNT==upload_time-1)
+				{
+					wlen=lastpack_Size;
+				}
+				if(COUNT==upload_time)  break;
+				usleep(1);
 			}
 			xil_printf("%s %d  write_len=%d\r\n", __FUNCTION__, __LINE__,write_len);
 			write_len=0;
@@ -1999,7 +2027,8 @@ int cmd_reply_a208(BYTE* path)
 		ReplyStructA208Ack.AckHandId=0x01;
 #endif
 
-		Status = Num_of_Dir_and_File(path,&TotalFileNum,&TotaldirNum,1);
+//		Status = Num_of_Dir_and_File(path,&TotalFileNum,&TotaldirNum,1);
+		Status = Num_of_Dir_and_File(path,&TotalFileNum,&TotaldirNum,0);
 		if (Status != FR_OK) {
 			xil_printf("Count Failed! ret=%d\r\n",Status);
 			return -1;
@@ -2627,7 +2656,7 @@ int run_cmd_d205(BYTE* name,uint8_t mode)
 			 }
 			 if(r_count==time-1)
 			 {
-				 len=LastPack_Size;
+				 	len=LastPack_Size;
 			 }
 
 			 if(time==r_count)
@@ -2729,7 +2758,6 @@ int run_cmd_d205_2(BYTE* name,int read_time,uint8_t mode)
 //开始读取
 	  while(1)
 	  {
-//		    r_count=0;
 		  	ret = f_read1(
 						&rfile,
 						buff_r,
@@ -2802,7 +2830,11 @@ int run_cmd_d205_2(BYTE* name,int read_time,uint8_t mode)
 						 xil_printf(" Recycle_read Finished! recycle time:%d\r\n",Reread_time);
 						 break;
 					}
-//					goto Re_read;
+			}
+			if(Stop_read==1)     //读取到取消回读的标志
+			{
+				Stop_read=0;
+				break;    //终止回读
 			}
 
 	 }  //while
@@ -2815,7 +2847,7 @@ int run_cmd_d205_2(BYTE* name,int read_time,uint8_t mode)
 	 return 0;
 }
 
-//******读文件命令*******//
+//******回放文件数据命令*******//
 int run_cmd_d204(StructMsg *pMsg)
 {
      int temp=0,ret=0,i=0,x=0,h=0;

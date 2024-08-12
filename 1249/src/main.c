@@ -104,11 +104,11 @@ int main()
 	/* receive and process packets */
 	while(1)
 	{
-		if((rxflag==1))
-		{
-			cmd_parse();
-			rxflag=0;
-		}
+//		if((rxflag==1))
+//		{
+//			cmd_parse();
+//			rxflag=0;
+//		}
 //		run_cmd_d203(0);
 		memset(&CurMsg,0,sizeof(CurMsg));
 		GetMessage(&CurMsg);

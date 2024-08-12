@@ -1022,8 +1022,7 @@ uint8_t io_write2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, 
 	static uint32_t full_wr_cnt = 0;
 //	slba = slba/512/nhc_num*2; //6.13改
 	slba = slba/512/nhc_num;
-//	slba = convert1ToMultipleOfSix();
-//	slba = slba/512;
+//	slba = convert1ToMultipleOfSix(slba/512/nhc_num);
 //	j=0;  //j代表总包数
 //	xil_printf("io_write addr=0x%x slba=%u  ", addr, slba);
 //	xil_printf("len=%lu\n", len);
@@ -1039,6 +1038,7 @@ uint8_t io_write2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, 
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*U_BLK_SIZE/nhc_num;   // 9.27改
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;   //6.13改
 		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
+//		cmd_cdw[6]  = convertToMultipleOfSix(addr + (i%(nhc_num/DDR_NUM))*len/nhc_num);
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len;
 //		cmd_cdw[6]  = addr + i*len/nhc_num;		// 3.9
@@ -1051,6 +1051,7 @@ uint8_t io_write2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, 
 //		cmd_cdw[12] = len/512/nhc_num*2*2;
 //		cmd_cdw[12] = len/512/nhc_num*2;    // 6.13改
 		cmd_cdw[12] = len/512/nhc_num;
+//		cmd_cdw[12] = convertToMultipleOfSix(len/512/nhc_num);
 //		cmd_cdw[12] = 64;
 		cmd_cdw[13] = dsm & 0xFF;
 		cmd_cdw[14] = 0x0;
@@ -1347,6 +1348,7 @@ uint8_t io_read2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 
 //	slba = slba/512/nhc_num*2;
 	slba = slba/512/nhc_num;
+//	slba = convert1ToMultipleOfSix(slba/512/nhc_num);
 //	slba = slba/512;
 	for(i=0;i<nhc_num;)
 	{
@@ -1362,6 +1364,7 @@ uint8_t io_read2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*U_BLK_SIZE/nhc_num;   // 9.27改
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;
 		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
+//		cmd_cdw[6]  = convertToMultipleOfSix(addr + (i%(nhc_num/DDR_NUM))*len/nhc_num);
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len;
 		cmd_cdw[7]  = 0x0; // Non-zero if use 64bit memory address
@@ -1373,6 +1376,7 @@ uint8_t io_read2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 //		cmd_cdw[12] = len/512/nhc_num*2*2;   // 9.25
 //		cmd_cdw[12] = len/512/nhc_num*2;
 		cmd_cdw[12] = len/512/nhc_num;
+//		cmd_cdw[12] = convertToMultipleOfSix(len/512/nhc_num);
 //		cmd_cdw[12] = U_BLK_SIZE/512/nhc_num;
 		cmd_cdw[13] = dsm & 0xFF;
 		cmd_cdw[14] = 0x0;
@@ -1445,18 +1449,18 @@ uint8_t io_read2(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 			if (sts == 3)
 				return sts;
 		}
-		while (queue5_rptr != queue5_wptr)
-		{
-			sts = nhc_cmd_sts(4);
-			if (sts == 3)
-				return sts;
-		}
-		while (queue6_rptr != queue6_wptr)
-		{
-			sts = nhc_cmd_sts(5);
-			if (sts == 3)
-				return sts;
-		}
+//		while (queue5_rptr != queue5_wptr)
+//		{
+//			sts = nhc_cmd_sts(4);
+//			if (sts == 3)
+//				return sts;
+//		}
+//		while (queue6_rptr != queue6_wptr)
+//		{
+//			sts = nhc_cmd_sts(5);
+//			if (sts == 3)
+//				return sts;
+//		}
 	return 0x02;
 }
 
@@ -1471,6 +1475,7 @@ uint8_t io_read3(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 
 //	slba = 2*slba/512/nhc_num;
 	slba = slba/512/nhc_num;
+//	slba = convert1ToMultipleOfSix(slba/512/nhc_num);
 	for(i=0;i<nhc_num;)
 	{
 //		if (i == 0)
@@ -1485,6 +1490,7 @@ uint8_t io_read3(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*U_BLK_SIZE/nhc_num;   // 9.27改
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len*2/nhc_num;
 		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
+//		cmd_cdw[6]  = convertToMultipleOfSix(addr + (i%(nhc_num/DDR_NUM))*len/nhc_num);
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len/nhc_num;
 //		cmd_cdw[6]  = addr + (i%(nhc_num/DDR_NUM))*len;
 		cmd_cdw[7]  = 0x0; // Non-zero if use 64bit memory address
@@ -1496,6 +1502,7 @@ uint8_t io_read3(uint8_t nhc_num, uint32_t nsid, uint32_t addr, uint64_t slba, u
 //		cmd_cdw[12] = len/512/nhc_num*2*2;   // 9.25
 //		cmd_cdw[12] = len/512/nhc_num*2;
 		cmd_cdw[12] = len/512/nhc_num;
+//		cmd_cdw[12] = convertToMultipleOfSix(len/512/nhc_num);
 //		cmd_cdw[12] = U_BLK_SIZE/512/nhc_num;
 		cmd_cdw[13] = dsm & 0xFF;
 		cmd_cdw[14] = 0x0;
