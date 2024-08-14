@@ -14,6 +14,8 @@
 
 
 #define 	OFFSET_SIZE             2*2*2*2*1024*1024   // 32M
+//#define 	MAX_LEN             0x2000 0x27EC 0x5B4
+#define 	MAX_LEN             0x400
 //接收模式   6.17
 #define     MODE_8x			    0x00010008
 #define     MODE_1x		        0x00010001

@@ -249,6 +249,20 @@ int main()
 							xil_printf("------commands executing complete!------\r\n");
 						break;
 
+						case 0x7:
+							xil_printf("%s %d  CurMsg.HandType:0x%x CurMsg.HandId:0x%x\r\n", __FUNCTION__, __LINE__,CurMsg.HandType,CurMsg.HandId);
+							xil_printf("------Start executing commands!------\r\n");
+							ret=run_cmd_d207(&CurMsg);
+							if(ret!=0)
+							{
+								xil_printf("------commands executing failed!------ ret=%d\r\n",ret);
+//								cmd_reply_a203(CurMsg.PackNum,CurMsg.HandType,CurMsg.HandId,0x10);
+								break;
+							}
+//							    cmd_reply_a203(CurMsg.PackNum,CurMsg.HandType,CurMsg.HandId,0x11);
+							xil_printf("------commands executing complete!------\r\n");
+						break;
+
 						default:
 						break;
 					}

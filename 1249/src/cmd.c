@@ -261,43 +261,44 @@ void cmd_type_id_parse(StructMsg *pMsg)
 								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
 							}
 						break;
-						case 0x5:
-							for(i=0; i < TMsg.DataLen; i++)
-							{
-								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
-							}
-						break;
-//						case 0x6:
+//						case 0x5:
 //							for(i=0; i < TMsg.DataLen; i++)
 //							{
 //								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
 //							}
 //						break;
-						case 0x7:
-							for(i=0; i < TMsg.DataLen; i++)
-							{
-								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
-							}
-						break;
-						case 0x8:
-							for(i=0; i < TMsg.DataLen; i++)
-							{
-								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
-							}
-						break;
-						case 0x9:
-							for(i=0; i < TMsg.DataLen; i++)
-							{
-								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
-							}
-						break;
-						case 0xA:
+						case 0x6:
 							for(i=0; i < TMsg.DataLen; i++)
 							{
 								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
 							}
 							Stop_read=1;
 						break;
+						case 0x7:
+							for(i=0; i < TMsg.DataLen; i++)
+							{
+								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
+							}
+						break;
+//						case 0x8:
+//							for(i=0; i < TMsg.DataLen; i++)
+//							{
+//								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
+//							}
+//						break;
+//						case 0x9:
+//							for(i=0; i < TMsg.DataLen; i++)
+//							{
+//								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
+//							}
+//						break;
+//						case 0xA:
+//							for(i=0; i < TMsg.DataLen; i++)
+//							{
+//								TMsg.MsgData[i] = CmdRxBufferPtr[i+24];
+//							}
+//							Stop_read=1;
+//						break;
 						default:
 							return 0;
 						break;
@@ -314,8 +315,6 @@ void cmd_type_id_parse(StructMsg *pMsg)
 					return 0;
 				break;
 		}
-		//xil_printf("%s %d p->HandType:0x%x  p->HandId:0x%x\n", __FUNCTION__, __LINE__,TMsg.HandType,TMsg.HandId);
-
 		SendMessage(&TMsg);
 }
 
@@ -737,16 +736,16 @@ int run_cmd_a201(StructMsg *pMsg)
 			usleep(100);
 
 			wlen=write_len;
-			if(write_len>0x3FFE)
+			if(write_len>MAX_LEN)   //0x3FFE
 			{
-				upload_time = (write_len/0x3FFE)+1;
-				wlen = 0x3FFE;
-				lastpack_Size = write_len % 0x3FFE;
-				if((write_len%0x3FFE)==0)
+				upload_time = (write_len/MAX_LEN)+1;
+				wlen = MAX_LEN;
+				lastpack_Size = write_len % MAX_LEN;
+				if((write_len%MAX_LEN)==0)
 				{
-					upload_time = write_len/0x3FFE;
-					wlen = 0x3FFE;
-					lastpack_Size = 0x3FFE;
+					upload_time = write_len/MAX_LEN;
+					wlen = MAX_LEN;
+					lastpack_Size = MAX_LEN;
 				}
 			}
 
@@ -2550,7 +2549,7 @@ int run_cmd_d203(StructMsg *pMsg)
 }
 
 
-/*****************分包读取文件命令 1次读完*******************/
+/*****************分包回放文件命令——1次读完*******************/
 int run_cmd_d205(BYTE* name,uint8_t mode)
 {
 	  int i=0,x=0,Status,ret,h=0,time=1;
@@ -2693,7 +2692,7 @@ int run_cmd_d205(BYTE* name,uint8_t mode)
 	 return 0;
 }
 
-/*****************分包读取文件命令循环回读*******************/
+/*****************分包回放文件命令——循环回读*******************/
 int run_cmd_d205_2(BYTE* name,int read_time,uint8_t mode)
 {
 	 int i=0,x=0,Status,ret,h=0,time=1;
@@ -2975,6 +2974,189 @@ int run_cmd_d204(StructMsg *pMsg)
 	    	break;
 	}
 #endif
+	return 0;
+}
+
+/*****************导出文件数据到本地命令*******************/
+int run_cmd_d208(BYTE* name,uint8_t mode)
+{
+	  int i=0,x=0,Status,ret,h=0,time=1;
+	  uint8_t sts=0;
+	  int64_t size=0,LastPack_Size=0;
+	  int br;
+	  uint32_t  r_count=0,cmd_len=0;;
+	  uint32_t  len,MODE=0;
+	  uint32_t  buff_r=(void *)(0x90000000);
+
+	  xil_printf("%s %d  %s\r\n", __FUNCTION__, __LINE__,name);
+	  switch(mode)
+	  {
+	  	  case 0:
+	  		 MODE=MODE_tcp;
+	  		 break;
+
+	  	  case 1:
+//	  		 MODE=;
+	  	     break;
+
+	  	  default:
+			 break;
+	  }
+	  ret = f_open(&rfile,name, FA_OPEN_EXISTING |FA_READ);
+//	  ret = f_open(&rfile,"D", FA_OPEN_EXISTING |FA_READ|FA_WRITE);
+	  if (ret != FR_OK)
+	  {
+			xil_printf("f_open Failed! ret=%d\r\n", ret);
+			//cmd_reply_a203_to_a201(pMsg->PackNum,pMsg->HandType,pMsg->HandId,0x10);  // lyh 2023.8.15
+			return ret;
+	  }
+	  size=(f_size(&rfile)/4+1)*4;
+	  len=size;
+	  if(size>0x8000000)
+	  {
+		  time=size/0x8000000+1;
+		  len=0x8000000;
+		  LastPack_Size=((size%0x8000000)/4+1)*4;
+		  if((size%0x8000000)==0)
+		  {
+			  time=size/0x8000000;
+			  len=0x8000000;
+			  LastPack_Size=0x8000000;
+		  }
+	  }
+	  //告诉fpga切换模式
+	  DestinationBuffer_1[0]=DUMMY;
+	  DestinationBuffer_1[1]=MODE;
+//	  DestinationBuffer_1[1]=MODE_8x;
+	  ret = TxSend(DestinationBuffer_1,8);
+	  if (ret != XST_SUCCESS)
+	  {
+		  xil_printf("TxSend Failed! ret=%d\r\n", ret);
+		  return ret;
+	  }
+
+//开始读取
+	  while(1)
+	  {
+		  	ret = f_read1(
+						&rfile,
+						buff_r,
+						len,
+						&br
+			);
+			if (ret != FR_OK)
+			{
+					xil_printf("f_read Failed! ret=%d\r\n", ret);
+					return ret;
+			}
+			r_count++;
+
+			//sfifo发送长度
+			DestinationBuffer_1[0]=len;
+			DestinationBuffer_1[1]=buff_r;
+//			XLLFIFO_SysInit();
+//			Xil_L1DCacheFlush();
+
+			ret = TxSend(DestinationBuffer_1,8);
+			if (ret != XST_SUCCESS)
+			{
+				 xil_printf("TxSend Failed! ret=%d\r\n", ret);
+				 return ret;
+			}
+			do
+			{
+				RxReceive(DestinationBuffer_1,&cmd_len);
+			}while(!(0xaa55aa55 == DestinationBuffer_1[0]));
+
+			for(i=0;i<NHC_NUM;i++)
+			{
+					while (nhc_queue_ept(i) == 0)
+					{
+						do {
+							sts = nhc_cmd_sts(i);
+						}while(sts == 0x01);
+					}
+			 }
+			 if(r_count==time-1)
+			 {
+					len=LastPack_Size;
+			 }
+
+			 if(time==r_count)
+			 {
+					xil_printf("I/O Read or Write Test Finish!\r\n");
+					xil_printf("r_count=%u r_size=%lu\r\n",r_count,f_size(&rfile));
+					DestinationBuffer_1[0]=DUMMY;
+					DestinationBuffer_1[1]=READ_FINSHED;
+					ret = TxSend(DestinationBuffer_1,8);
+					if (ret != XST_SUCCESS)
+					{
+					   xil_printf("TxSend Failed! ret=%d\r\n", ret);
+					   return ret;
+					}
+					for(i=0;i<NHC_NUM;i++)
+					{
+						while (nhc_queue_ept(i) == 0)
+						{
+							do {
+								sts = nhc_cmd_sts(i);
+							}while(sts == 0x01);
+						}
+					}
+					break;
+			}
+
+	 }  //while
+	 ret=f_close(&rfile);
+	 if (ret != FR_OK)
+	 {
+		 xil_printf(" f_close Failed! %d\r\n",ret);
+		 return ret;
+	 }
+	 return 0;
+}
+
+
+//******导出文件数据到本地命令*******//
+int run_cmd_d207(StructMsg *pMsg)
+{
+     int temp=0,ret=0,i=0,x=0,h=0;
+	 int Read_mode=0;
+	 u16 unicode_u16=0;
+	 WCHAR cmd_str_1[1024]={0};
+	 BYTE cmd_str_11[100]={0};
+	 FIL file;
+
+     for (x = 0; x < 1024; x++)
+     {
+      	 unicode_u16=(pMsg->MsgData[i++]|pMsg->MsgData[i++]<<8);
+    	 cmd_str_1[x] = ff_uni2oem(unicode_u16,FF_CODE_PAGE);
+    	 if(cmd_str_1[x]<=0x7E)
+		 {
+			 cmd_str_11[h++]=cmd_str_1[x];
+		 }
+		 else
+		 {
+			 cmd_str_11[h++]=(cmd_str_1[x]>>8);
+			 cmd_str_11[h++]=cmd_str_1[x];
+		 }
+         if (cmd_str_1[x] == '\0') break;
+    }           // 文件路径
+    xil_printf("%s %d  %s\r\n", __FUNCTION__, __LINE__,cmd_str_11);
+    i=temp+2048;
+	Read_mode=CW32(pMsg->MsgData[i+0],pMsg->MsgData[i+1],pMsg->MsgData[i+2],pMsg->MsgData[i+3]);
+
+	switch(Read_mode)
+	{
+		case 0x0:    // 0:文件数据通过网口tcp导出到本地;1:文件数据通过光纤udp导出到本地
+			run_cmd_d208(cmd_str_11,0);
+		break;
+
+		case 0x1:
+
+		default:
+			break;
+	}
 	return 0;
 }
 
